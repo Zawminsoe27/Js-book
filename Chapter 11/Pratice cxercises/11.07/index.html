@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- If you don't want to write js code in html you can connect css fie
+	<link rel="stylesheet" href="style.css">
+	-->
+	<link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
+    <title></title>
+</head>
+
+<body>
+    <div class="container border border-secondary border-2 w-75 py-2 mt-3 bg-dark">
+        <div class="output1 mt-3 text-center text-white"></div>
+
+        <form class=" mt-2">
+            <input type="text" placeholder="First Name" name="first" class="form-control mt-3"/>
+            
+            <input type="text" placeholder="Last name" name="last" class="form-control mt-3 mb-3"/>
+         </form>
+    </div>
+    
+    <script>
+        let output = document.querySelector(".output1");
+        let first = document.querySelector("input[name='first']")
+        let last = document.querySelector("input[name='last']");
+        first.addEventListener("change", (e) => {
+            console.log("change")
+            displayText(first.value);
+        });
+        first.addEventListener("blur", () =>{
+            console.log("blur")
+        })
+        first.addEventListener("focus", ()=> {
+            console.log("Focus")
+        })
+        
+       last.addEventListener("change", (e) => {
+           displayText (last.value)
+       })
+       last.addEventListener("blur", () => {
+           console.log("blur")
+       })
+       
+       last.addEventListener("focus", () => {
+           console.log("Focus")
+       });
+        
+        function displayText(str) {
+            output.textContent = str;
+        }
+    </script>
+    <!-- If you don't want to write js code in html you can connect js fie 
+	<script src="app js"></script>
+	-->
+</body>
+
+</html>
