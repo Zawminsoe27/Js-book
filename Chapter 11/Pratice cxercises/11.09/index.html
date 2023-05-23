@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- If you don't want to write js code in html you can connect css fie
+		<link rel="stylesheet" href="style.css">
+	-->
+	<link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
+	<title></title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+			background: white;
+		}
+
+		.red {
+			background: red;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="box">
+		<div id="dragme" draggable="true">
+			Drag Me!
+		</div>
+	</div>
+	<div class="box">2</div>
+
+	<!-- If you don't want to write js code in html you can connect js fie
+		<script src="app js"></script>
+	-->
+	<script>
+		const dragme = document.querySelector("#dragme");
+		const boxes = document.querySelectorAll(".box");
+		dragme.addEventListener("dragstart", (e) => {
+			dragme.style.opacity = .5;
+		})
+		dragme.addEventListener("dragend", (e) => {
+			dragme.style.opacity = "";
+		})
+
+		boxes.forEach(boxes => {
+			boxes.addEventListener("dragenter", (enter) => {
+				e.target.classList.add("red")
+			});
+
+			boxes.addEventListener("dragover", (e) => {
+				e.preventDefault();
+			});
+
+			boxes.addEventListener("dragleave", (e) => {
+				e.target.classList.remove("red")
+			});
+			boxes.addEventListener("drop", (e) => {
+				e.preventDefault();
+				e.target.appendChild(dragme)
+			});
+		});
+
+		function dragStart(e) {
+			console.log("Started")
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- If you don't want to write js code in html you can connect css fie
+		<link rel="stylesheet" href="style.css">
+	-->
+	<link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
+	<title></title>
+</head>
+
+<body>
+	<form class="form-group mt-3">
+		<input type="text" class="form-control" id="firstname" name="firstname" placeholder="Input your first name"/ >
+		<input type="text" class="form-control mt-3" id="lastname" name="lastnamr" placeholder="Input your last name"/ >
+		<input type="number" class="form-control mt-3" id="age" name="age" placeholder="Input your age"/ >
+		<input type="submit" class="btn btn-primary text-light mt-3 rounded-pill btn-lg ml-5"  value="Send"/>
+		
+	</form>
+	<script>
+		let form = document.querySelector("form");
+		form.addEventListener("submit", (e) => {
+			let error = false;
+			if(checker(form.firstname.value))  {
+				console.log("First Name Required");
+				error = true;
+			}
+			
+			if(checker(form.lastname.value)) {
+				console.log("Last Name Required")
+				error = true;
+			}
+			
+			if(age < 18) {
+				console.log("You are young");
+				error = true;
+			}
+			if(error) {
+				e.preventDefault()
+			}
+			
+			function checker(val) {
+				if(val.length<6){
+					return true
+				}
+				return false
+			}
+		})
+		
+		
+	</script>
+	<!-- If you don't want to write js code in html you can connect js fie
+		<script src="app js"></script>
+	-->
+</body>
+
+</html>

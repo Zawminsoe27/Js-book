@@ -2,25 +2,25 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- If you don't want to write js code in html you can connect css fie
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- If you don't want to write js code in html you can connect css fie
 		<link rel="stylesheet" href="style.css">
 	-->
-	<style>
-	    .output{
-	        height: 35px;
-	        box-sizing: border-box;
-	        font-size:20px;
-	        padding: 5px;
-	        display: flex;
-	        flex-direction: column;
+    <style>
+        .output {
+            height: 35px;
+            box-sizing: border-box;
+            font-size: 20px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            
-	    }
-	</style>
-	<link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
-	<title></title>
+
+        }
+    </style>
+    <link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
+    <title></title>
 </head>
 
 <body>
@@ -32,19 +32,30 @@
             <input type="text" class="form-control" name="input2" id="input">
         </form>
     </div>
-	<!-- If you don't want to write js code in html you can connect js fie
+    <!-- If you don't want to write js code in html you can connect js fie
 		<script src="app js"></script>
 	-->
-	<script>
-	    const inputFields = document.querySelectorAll("input");
-	    const output = document.querySelector(".output");
-	    
-	    inputFields.forEach( ele => {
-	        ele.addEventListener("keyup", (e) => {
-	            output.textContent = e.target.value
-	        })
-	    })
-	</script>
+    <script>
+        const inputFields = document.querySelectorAll("input");
+        const output = document.querySelector(".output");
+
+        inputFields.forEach(ele => {
+            ele.addEventListener("keydown", (e) => {
+                if (!isNaN(e.key)) {
+                    output.textContent += e.key;
+                }
+            });
+
+            ele.addEventListener("keyup", (e) => {
+                console.log(e.key)
+            });
+
+            ele.addEventListener("paste", () => {
+                console.log("pasted")
+            })
+
+        })
+    </script>
 </body>
 
 </html>
