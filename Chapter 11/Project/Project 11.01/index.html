@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- If you don't want to write js code in html you can connect css fie
+		<link rel="stylesheet" href="style.css">
+	-->
+	<link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
+	<title></title>
+	<style>
+		.box{
+			width: 100px;
+			height: 80px;
+			background: red;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="box" id="box0">Box 1</div>
+	<div class="box" id="box1">Box 2</div>
+	<div class="box" id="box2">Box 3</div>
+	<div class="box" id="box3">Box 4</div>
+</div>
+<script>
+	let container = document.querySelector(".container");
+	let trackList = [];
+	container.addEventListener("click", tracker);
+	
+	function tracker(e){
+		let el = e.target;
+	if(el.id){
+		let temp = {};
+		temp.content = el.textContent,
+		temp.id = el.id,
+		temp.class = el.className
+		temp.tag = el.tagName;
+		trackList.push(temp);
+		console.log(trackList)
+	}
+	}
+</script>
+
+	<!-- If you don't want to write js code in html you can connect js fie
+		<script src="app js"></script>
+	-->
+</body>
+
+</html>

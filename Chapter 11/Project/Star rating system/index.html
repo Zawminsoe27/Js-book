@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- If you don't want to write js code in html you can connect css fie
+		<link rel="stylesheet" href="style.css">
+	-->
+	<link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
+	<style>
+		.stars ul {
+			list-style-type: none;
+			padding: 0;
+		}
+
+		.star {
+			font-size: 2em;
+			color: #ddd;
+			display: inline-block;
+		}
+
+		.orange {
+			color: orange
+		}
+
+		.output {
+			background-color: #ddd
+		}
+	</style>
+	<title></title>
+</head>
+
+<body>
+	<ul class="stars">
+		<li class="star">&#10029</li>
+		<li class="star">&#10029</li>
+		<li class="star">&#10029</li>
+		<li class="star">&#10029</li>
+		<li class="star">&#10029</li>
+	</ul>
+	<div class="output"></div>
+	<script>
+		const starsUl = document.querySelector(".stars");
+		const output = document.querySelector(".output")
+		const stars = document.querySelectorAll(".star");
+		
+		stars.forEach( (star, index)=> {
+			star.startValue = (index+1);
+			star.addEventListener("click",starRate);
+		})
+		
+		function starRate(e) {
+			output.textContent = "You rated " + `${e.target.startValue}` + " stars"
+			stars.forEach( (star,index)  => {
+				if (index < e.target.startValue) {
+					star.classList.add("orange")
+				} else {
+					star.classList.remove("orange")
+					
+				}
+				
+			}
+		)
+		}
+	</script>
+	<!-- If you don't want to write js code in html you can connect js fie
+		<script src="app js"></script>
+	-->
+</body>
+
+</html>
