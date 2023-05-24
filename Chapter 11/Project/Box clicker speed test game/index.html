@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- If you don't want to write js code in html you can connect css fie
+		<link rel="stylesheet" href="style.css">
+	-->
+	<link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
+	<title> Js</title>
+	<style>
+		.output{
+			width:100%;
+			height: 500px;
+			border: 1px solid black;
+			margin: auto;
+			text-align: center;
+			background: rgb(10,20,50)
+
+		}
+		.box {
+			width: 50px;
+			height: 50px;
+			top: 50px;
+			left: 20%;
+			position: relative;
+			/*background-color: red;*/
+		}
+		.message{
+			text-align: center;
+			padding: 1px;
+			font-size: 1.3em;
+			background: blue;
+			color: white;
+		}
+		.gaming{
+			margin-top: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="gaming">
+	<div class="output"></div>
+	<div class="message"></div>
+	</div>
+	<!-- If you don't want to write js code in html you can connect js fie
+		<script src="app.js"></script>
+	-->
+	<script>
+		const output = document.querySelector(".output");
+		const message = document.querySelector(".message");
+		const box = document.createElement("div");
+		message.textContent = "Press to start"
+		box.classList.add("box");
+		output.append(box);
+		box.style.backgroundColor = randomColor();
+		let game = {
+			timer:0,
+			start:null
+		}
+		let duration;
+		let current;
+		function ranNum(max){
+			return Math.floor(Math.random() *max)
+		}
+		box.addEventListener("click", () => {
+			box.style.display = "none"
+			setTimeout(addBox, ranNum(1));
+			
+			if(!game.start) {
+				message.textContent = "Loading..."
+			} else {
+			   current = new Date().getTime();
+				duration = (current - game.start) /1000;
+				message.textContent = `Its look ${duration} seconds to click it.`;
+			}
+		});
+		
+		function addBox() {
+			message.textContent =  `Its look ${duration} seconds to click it.`; ;
+			game.start = new Date().getTime();
+			box.style.display = "block";
+			box.style.left = ranNum(450) + "px";
+			box.style.top = ranNum(450) +"px";
+		}
+		function randomColor(){
+			setInterval(color,100)
+		}
+
+		function color () {
+			let r = Math.floor(Math.random()*256);
+			let g = Math.floor(Math.random()*256);
+			let b = Math.floor(Math.random()*256);
+			box.style.backgroundColor =  `rgb(${r},${g},${b})`
+		}
+		
+		/*function color() {
+			let ran;
+			let r = Math.floor(Math.random() * 256);
+			let g = Math.floor(Math.random() * 256);
+			let b = Math.floor(Math.random() * 256);
+			box.style.backgroundColor = `rgb(${r},${g},${b})`;
+		}*/
+		randomColor();
+	</script>
+</body>
+
+</html>

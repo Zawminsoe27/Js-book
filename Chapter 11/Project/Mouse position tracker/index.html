@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- If you don't want to write js code in html you can connect css fie
+		<link rel="stylesheet" href="style.css">
+	-->
+	<link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
+	<style>
+	body{
+		background-color: rgb( 200, 200, 200);
+	}
+	.active{
+		background-color: red;
+	}
+		.box {
+			width: 200px;
+			height: 150px;
+			border: 1px solid red;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%)
+		}
+			.output{
+				position: absolute;
+				top: 30%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				color: black;
+				font-size: 2em;
+				
+			}
+		
+	</style>
+	<title></title>
+</head>
+
+<body>
+	<div class="box"></div>
+	<div class="output text-center alert alert-success">Hello</div>
+
+	<!-- If you don't want to write js code in html you can connect js fie
+		<script src="app.js"></script>
+	-->
+	<script>
+		const main = document.querySelector(".box");
+		const output = document.querySelector(".output")
+		main.addEventListener("mouseover", (e) => {
+			main.classList.add("active")
+		});
+		main.addEventListener("mouseout", () => {
+			main.classList.remove("active")
+		})
+		main.addEventListener("mousemove", tracker)
+		function tracker(e) {
+			let html = "X: " +event.clientX + " | Y: "+event.clientY;
+				output.textContent = html;
+				
+		}
+	</script>
+</body>
+
+</html>
