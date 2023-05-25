@@ -18,10 +18,26 @@ Search for:
 <input type="text" name="" id="sText" class="form-control">
 <br/> Replaced with:
 <input type="text" name="" id="rText" class="form-control">
-
+<button class="btn btn-primary text-white mt-2  rounded-pill">Replace</button>
 	<!-- If you don't want to write js code in html you can connect js fie
 		<script src="app.js"></script>
 	-->
+	<script>
+		const output = document.querySelector("#output");
+		const findValue = document.querySelector("#sText");
+		const replaceValue = document.querySelector("#rText");
+		document.querySelector("button").addEventListener("click",lookUp);
+		
+		function lookUp() {
+			const s = output.textContent;
+			const rt = replaceValue.value;
+			const re = new RegExp(findValue.value, "gi");
+			if (s.match(re)) {
+				let newValue = s.replace(re,rt);
+				output.textContent = newValue;
+			}
+		}
+	</script>
 </body>
 
 </html>
