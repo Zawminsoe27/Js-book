@@ -21,8 +21,8 @@
 		<script src="app.js"></script>
 	-->
 	<script>
-		let output = document.querySelector(".output");
-		let email = document.querySelector(".email");
+		const output = document.querySelector(".output");
+		const email = document.querySelector(".email");
 		const reqMail = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/;
 
 		const btn = document.querySelector("button");
@@ -43,7 +43,7 @@
 			}
 			email.value = "";
 			
-		})
+		});
 	</script>
 </body>
 
