@@ -6,7 +6,7 @@ document.querySelector("button").addEventListener("click", lookUp);
 function lookUp() {
 	const s = output.textContent;
 	const rt = replaceValue.value;
-	const re = new RegExp(findValue.value, "gi");
+	const re = new RegExp(findValue.value, "id");
 	if (s.match(re)) {
 		let newValue = s.replace(re, rt);
 		output.textContent = newValue;

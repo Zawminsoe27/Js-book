@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- If you don't want to write js code in html you can connect css fie
+		<link rel="stylesheet" href="style.css">
+	-->
+	<link rel="stylesheet" href="../../../Vendor/bootstrap.min.css">
+	<title></title>
+</head>
+
+<body>
+<div class="output alert mt-2"> </div>
+<div class="input-text">
+<input type="text" class="form-control form-group-md mt-3 px-2 email" placeholder="input email">
+<button class="d-grid gap-2 btn btn-primary w-100 mt-3" type="button">Submit</button>
+</div>
+	<!-- If you don't want to write js code in html you can connect js fie
+		<script src="app.js"></script>
+	-->
+	<script>
+		let output = document.querySelector(".output");
+		let email = document.querySelector(".email");
+		const reqMail = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/;
+
+		const btn = document.querySelector("button");
+		
+		btn.addEventListener("click", (e) =>{
+			let emailVal = email.value;
+			let result = reqMail.test(emailVal);
+			let response = "";
+			if(!result){
+				output.textContent = `Please enter valid email. You input ${emailVal} is not a valid email`
+				output.classList.remove("alert-success")
+				output.classList.add("alert-danger")
+			}
+			if(result){
+				output.textContent = `Success your email ${emailVal} is valid`
+				output.classList.remove("alert-danger");
+				output.classList.add("alert-success");
+			}
+			email.value = "";
+			
+		})
+	</script>
+</body>
+
+</html>
