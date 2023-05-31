@@ -32,6 +32,7 @@
 			let result = reqMail.test(emailVal);
 			let response = "";
 			if(!result){
+				
 				output.textContent = `Please enter valid email. You input ${emailVal} is not a valid email`
 				output.classList.remove("alert-success")
 				output.classList.add("alert-danger")
